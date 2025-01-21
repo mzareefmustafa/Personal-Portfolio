@@ -134,8 +134,8 @@ nav .right a:last-child:hover {
     align-items: center;
     gap: 40px;
     /* margin-bottom: ; */
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .hero-section .text {
@@ -167,8 +167,8 @@ nav .right a:last-child:hover {
     padding: 0 50px;
     /* margin-bottom: 100px; */
     background-color: var(--background-color2);
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .skills-section .sections {
     text-align: center;
@@ -183,13 +183,13 @@ nav .right a:last-child:hover {
     align-items: center;
     gap: 10px;
 
-    min-width: 200px;
+    min-width: 150px;
     padding: 10px 20px;
     margin: 10px;
     border: 1.5px solid var(--background-color);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
     border-radius: 5px;
-    max-width: 300px;
+    /* max-width: 300px; */
 
 }
 
@@ -236,8 +236,8 @@ nav .right a:last-child:hover {
 .project-section {
     padding: 0 50px;
     /* margin-bottom: 100px; */
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     /* width: 100%;
     margin: auto;
     min-height: 100vh; */
@@ -254,6 +254,7 @@ nav .right a:last-child:hover {
     font-size: 35px;
     padding-bottom: 15px;
     text-decoration: underline;
+    
   }
   
   .project-section .horizontal-scroll {
@@ -265,8 +266,14 @@ nav .right a:last-child:hover {
     justify-content: center;
   }
   
+  .project-section .text {
+    text-align: center;
+    margin-bottom: 75px;
+    margin-top: 15px;
+}
+
   .project-section .project-box {
-    flex: 0 0 16rem; /* Fixed width for each project */
+    flex: 0 0 14rem; /* Fixed width for each project */
     background-color: transparent;
     border: 1.5px solid var(--lining-color);
     border-radius: 15px;
@@ -274,6 +281,7 @@ nav .right a:last-child:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
     text-align: center;
     padding: 1rem;
+    
   }
   
   .project-section .project-box img {
@@ -287,7 +295,7 @@ nav .right a:last-child:hover {
 
   .project-section .project-box h4 {
     margin-bottom: 0.3rem;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
     color: var(--text-color);
 
@@ -295,7 +303,7 @@ nav .right a:last-child:hover {
 
   .project-box h5 {
     margin-bottom: 0.3rem;
-    font-weight: 500;
+    font-weight: 375;
     color: var(--text-color);
     }
 
@@ -308,12 +316,12 @@ nav .right a:last-child:hover {
     padding: 0 50px;
     /* margin-bottom: 100px; */
     background-color: var(--background-color2);
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   
   .contact-section h2 {
-    text-align: center;
+    /* text-align: center; */
     font-size: 35px;
     padding-bottom: 15px;
     text-decoration: underline;
@@ -324,13 +332,25 @@ nav .right a:last-child:hover {
     gap: 50px;
   }
   
-  .contact-section .group .text {
+  .contact-section .text {
     flex: 3;
-    margin-top: 20px;
-    
+    margin-top: 0px;
+    margin-bottom: 25px;
   }
   
   .contact-section .group form {
+    flex: 3;
+    display: flex;
+    gap: 40px;
+  }
+
+  .contact-section .group form .left {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-section .group form .right {
     flex: 3;
     display: flex;
     flex-direction: column;
@@ -350,6 +370,7 @@ nav .right a:last-child:hover {
     resize: none;
     color: white;
     border-radius:  10px;
+    width: 400px;
   }
 
   .contact-section .group form button {
@@ -361,7 +382,7 @@ nav .right a:last-child:hover {
     height: 50px;
     cursor: pointer;
     transition: .1s;
-    width: 40%;
+    width: 50%;
     margin-top: 10px;
     border-radius: 10px;
     margin-left: auto;
@@ -373,6 +394,7 @@ nav .right a:last-child:hover {
     transition: .2s;
   }
 
+  /* SECTION 5:Footer */
   footer {
     align-items: center;
     padding-top: 5px;
