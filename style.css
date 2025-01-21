@@ -2,8 +2,11 @@
 :root {
     --text-color: white;
     --link-color: #4a76ee;
-    --background-color: #eeeff1;
-}
+    --background-color: rgb(47, 47, 47);
+    --hover-color: rgb(167, 167, 167);
+    --lining-color: rgb(33, 33, 33);
+    --background-color2: rgb(33, 33, 33);
+}   
 
 * {
     margin: 0;
@@ -11,18 +14,23 @@
     box-sizing: border-box;
 }
 
+main {
+    padding-top: 80px; /* Matches the height of the navbar */
+}
+
 body {
     font-family: "Poppins", sans-serif;
-    background-color: rgb(33, 33, 33);
+    background-color: var(--background-color);
     color: white
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 p {
-    color: rgb(85, 85, 85);
+    color: white;
 }
 
 
@@ -38,42 +46,399 @@ nav {
     padding: 0 50px;
     height: 80px;
     align-items: center;
-    background-color: rgb(23, 23, 23);
+    background-color: rgba(0, 0, 0, 0.88);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+}
+
+nav .left, nav .right {
+    display: flex; /* Ensures proper alignment of content in these sections */
+    align-items: center;
 }
 
 nav .left a {
     color: var(--text-color);
-    margin: 0 10px;
+    margin: 0 15px;
+    transition: .1s;
+}
+
+nav .left a:hover {
+    color: var(--hover-color);
+}
+
+nav .middle {
+    text-align: center;
+    flex: 1; /* Ensures the middle section takes up space for centering */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    position: absolute; /* Removes it from the Flexbox flow */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts to true center */
 }
 
 nav .middle a {
     color: var(--text-color);
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 25px; /* Adjust as needed */
+    font-weight: 600; /* Keeps bold styling */
+    text-align: center; /* Ensures multi-line text is center-aligned */
+    line-height: 1.2; /* Adjust line spacing between lines */
+    margin: 0; /* Removes any default margin */
+    white-space: normal; /* Allows wrapping of text */
+    text-decoration: none; /* Removes underline */
+}
+
+nav .middle a:hover {
+    color: var(--hover-color);
+}
+
+.no-break {
+    white-space: nowrap;
 }
 
 nav .right a {
     color: var(--text-color);
     margin: 0 10px;
+    transition: .1s;
+}
+
+nav .right a:hover {
+    color: var(--hover-color);
 }
 
 nav .right a span {
-    margin-left: 3px;
+    margin-left: 4px;
 }
 
-@media (max-width: 600px) {
+nav .right a:last-child {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* fix media hover of this element */
+nav .right a:last-child:hover {
+    background-color: var(--hover-color);
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    /* margin: 75px 0; */
+    align-items: center;
+    gap: 40px;
+    /* margin-bottom: ; */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.hero-section .text {
+    flex: 5;
+}
+
+
+.hero-section .text h2 {
+    font-size: 40px;
+}
+
+.hero-section .headshot {
+    flex: 2;
+    display: flex;
+    justify-content: right;
+}
+
+.hero-section img {
+    display: block;
+    width: 350px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.61);
+    object-fit: cover;
+}
+
+/* SECTION 2: SKILLS */
+
+.skills-section {
+    padding: 0 50px;
+    /* margin-bottom: 100px; */
+    background-color: var(--background-color2);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.skills-section .sections {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+}
+
+.skills-section .skill-sets .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 200px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1.5px solid var(--background-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
+    border-radius: 5px;
+    max-width: 300px;
+
+}
+
+.skills-section .skill-sets .skill img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+.skills-section .skill-sets .skill span {
+    font-size: 18px;
+}
+
+
+.skills-section .text {
+    text-align: center;
+    margin-bottom: 75px;
+    margin-top: 15px;
+}
+
+.skills-section .skill-sections-title {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.skills-section .skill-sets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.skills-section .skill-sets:last-child {
+    margin-bottom: 0px;
+}
+
+
+
+/* SECTION 3: PROJECTS */
+
+.project-section {
+    padding: 0 50px;
+    /* margin-bottom: 100px; */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    /* width: 100%;
+    margin: auto;
+    min-height: 100vh; */
+    /* display: flex;
+    flex-direction: column; */
+    /* align-items: center;
+    text-align: center;
+    gap: 2rem; */
+  }
+  
+  .project-section .sections {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+  }
+  
+  .project-section .horizontal-scroll {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 40px; /* Space between projects */
+    padding: 10px 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    justify-content: center;
+  }
+  
+  .project-section .project-box {
+    flex: 0 0 16rem; /* Fixed width for each project */
+    background-color: transparent;
+    border: 1.5px solid var(--lining-color);
+    border-radius: 15px;
+    /* padding: 15px; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .project-section .project-box img {
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 0rem;
+    
+  }
+
+  .project-section .project-box h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+
+  }
+
+  .project-box h5 {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: var(--text-color);
+    }
+
+  .project-section .project-box p {
+    font-size: 12px;
+  }
+
+/* SECTION 4: Contact */
+.contact-section {
+    padding: 0 50px;
+    /* margin-bottom: 100px; */
+    background-color: var(--background-color2);
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .contact-section h2 {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+  }
+  
+  .contact-section .group {
+    display: flex;
+    gap: 50px;
+  }
+  
+  .contact-section .group .text {
+    flex: 3;
+    margin-top: 20px;
+    
+  }
+  
+  .contact-section .group form {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .contact-section .group form input,
+  .contact-section .group form textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    border: 2px solid var(--hover-color);
+    background-color: transparent;
+    padding: 15px 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    resize: none;
+    color: white;
+    border-radius:  10px;
+  }
+
+  .contact-section .group form button {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: var(--link-color);
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    transition: .1s;
+    width: 40%;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    background-color:var(--hover-color);
+  }
+  
+  .contact-section .group form button:hover {
+    filter: brightness(.8);
+    transition: .2s;
+  }
+
+  footer {
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--background-color);
+    border-top: 2px solid var(--lining-color);
+  }
+
+  footer p {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+
+  }
+
+@media (max-width: 1150px) {
+    /* SECTION 1: HERO */
+    .hero-section .text h2 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 1020px) {
+    /* SECTION 1: HERO */
+    .hero-section  {
+        flex-direction: column-reverse;
+    }
+
+    .hero-section .headshot img {
+        width: 300px;
+        /* align-items: center; */
+    }
+
+}
+@media (max-width: 1050px) {
     /* NAVBAR */
     nav {
         padding: 0 20px;
     }
-
+    nav .right a {
+        font-size: 22px;
+    }
     nav .right a span {
         display: none;
     }
-}
+    nav .right a:last-child {
+        color: var(--text-color);
+        background-color: transparent;
+        padding: 0px;
+    }
+    nav .right a:last-child:hover {
+        background-color: transparent;
+        color: var(--hover-color);
+    }
 
-img {
-    width: 25%;
-    border-radius: 200px;
+    /* Section 1: Hero */
+    .hero-section {
+        padding: 0 20px;
+    }
+
+    .hero-section .text h2 {
+        font-size: 30px;
+    }
+
+    /* SECTION 2: SKILLS */
+
     
 }
