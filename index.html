@@ -25,9 +25,9 @@
     <nav>
       <div class="left">
         <a href="#skills">Skills</a>
-
+        <span class="separator">|</span>
         <a href="#projects">Projects</a>
-
+        <span class="separator">|</span>
         <a href="#contact">Contact</a>
       </div>
       <div class="middle">
@@ -85,7 +85,7 @@
       </section>
       <!-- SECTION 2: SKILLS -->
       <section id="skills" class="skills-section">
-        <h2 class="sections">Skills</h2>
+        <h2 class="section-titles">Skills</h2>
         <div class="text">
           Here’s an overview of the technologies and concepts I’ve learned
           through building projects, tackling challenges, and hands-on
@@ -208,7 +208,7 @@
 
       <!-- SECTION 3: PROJECTS -->
       <section id="projects" class="project-section">
-        <h2 class="sections">Projects</h2>
+        <h2 class="section-titles">Projects</h2>
         <div class="text">
           Here’s a look at some of the projects I’ve done, demonstrating my
           skills and experience in software development.
@@ -311,7 +311,7 @@
                 />
               </picture>
               <h4>Personal Portfolio</h4>
-              <h5><em>HTML, CSS</em></h5>
+              <h5><em>HTML, CSS, Javascript</em></h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
                 minus quae quaerat ipsa ea placeat iusto similique fuga
@@ -324,34 +324,54 @@
 
       <!-- SECTION 4: Contact -->
       <section id="contact" class="contact-section">
-        <h2><a>Click Here to Leave a Message</a></h2>
-        <h2>Contact</h2>
+        <h2 class="section-titles">Contacts</h2>
+
         <div class="text">
           Feel free to reach out! Whether you have questions, want to
           collaborate, or just want to connect, I’d love to hear from you. I’ll
-          be sure to get back to you as soon as I can! testing testing testing
-          testing testing testing testing
+          be sure to get back to you as soon as I can!
         </div>
-        <div class="group">
-          <form>
-            <div class="left">
+
+        <!-- Button to open modal -->
+        <button id="open-modal">Click Here to Leave a Message</button>
+
+        <!-- Modal Structure -->
+        <div id="contact-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <form>
               <label for="name">Name</label>
-              <input type="text" class="input" id="name" />
+              <input
+                placeholder="Enter Your Name Here"
+                type="text"
+                id="name"
+                required
+              />
 
               <label for="email">Email</label>
-              <input type="email" class="input" id="email" />
-            </div>
-            <div class="left">
+              <input
+                placeholder="Enter Your Email Here"
+                type="email"
+                id="email"
+                required
+              />
+
               <label for="message">Message</label>
               <textarea
+                placeholder="Enter Your Message Here"
+                type="message"
                 id="message"
-                class="message"
                 cols="30"
-                rows="10"
+                rows="5"
+                required
               ></textarea>
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
+
+              <button type="submit">
+                Send Message
+                <img src="assets/send-icon.png" alt="send logo" />
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -359,5 +379,6 @@
     <footer>
       <p>© 2025 Mohammed Zareef-Mustafa. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

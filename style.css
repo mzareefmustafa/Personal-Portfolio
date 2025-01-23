@@ -40,6 +40,13 @@ a {
     transition: all 300ms ease;
 }
 
+.section-titles {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -62,9 +69,24 @@ nav .left, nav .right {
 
 nav .left a {
     color: var(--text-color);
-    margin: 0 15px;
-    transition: .1s;
+    padding: 0 15px;
+    transition: 0.1s;
+    position: relative;
+    text-decoration: none;
 }
+
+nav .left .separator {
+    color: var(--hover-color);
+    font-size: 18px;
+}
+
+/* Optional: Adjust flexbox settings for consistent layout */
+nav .left {
+    display: flex;
+    align-items: center;
+    gap: 0; /* Ensure no extra gap from flexbox if using padding/margin */
+}
+
 
 nav .left a:hover {
     color: var(--hover-color);
@@ -126,14 +148,13 @@ nav .right a:last-child:hover {
     background-color: var(--hover-color);
 }
 
+/* SECTION 1: HERO  */
 .hero-section {
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
-    /* margin: 75px 0; */
     align-items: center;
     gap: 40px;
-    /* margin-bottom: ; */
+    padding: 0 50px;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -164,17 +185,10 @@ nav .right a:last-child:hover {
 /* SECTION 2: SKILLS */
 
 .skills-section {
-    padding: 0 50px;
-    /* margin-bottom: 100px; */
     background-color: var(--background-color2);
+    padding: 0 50px;
     padding-top: 60px;
     padding-bottom: 60px;
-}
-.skills-section .sections {
-    text-align: center;
-    font-size: 35px;
-    padding-bottom: 15px;
-    text-decoration: underline;
 }
 
 .skills-section .skill-sets .skill {
@@ -187,7 +201,7 @@ nav .right a:last-child:hover {
     padding: 10px 20px;
     margin: 10px;
     border: 1.5px solid var(--background-color);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.325);
     border-radius: 5px;
     /* max-width: 300px; */
 
@@ -205,16 +219,18 @@ nav .right a:last-child:hover {
     font-size: 18px;
 }
 
-
 .skills-section .text {
-    text-align: center;
-    margin-bottom: 75px;
-    margin-top: 15px;
-}
+    flex: 3;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
 
 .skills-section .skill-sections-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 20px;
 }
 
@@ -222,7 +238,7 @@ nav .right a:last-child:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 
 .skills-section .skill-sets:last-child {
@@ -234,43 +250,38 @@ nav .right a:last-child:hover {
 /* SECTION 3: PROJECTS */
 
 .project-section {
-    padding: 0 50px;
-    /* margin-bottom: 100px; */
-    padding-top: 60px;
-    padding-bottom: 60px;
-    /* width: 100%;
-    margin: auto;
-    min-height: 100vh; */
-    /* display: flex;
-    flex-direction: column; */
-    /* align-items: center;
-    text-align: center;
-    gap: 2rem; */
+  padding: 0 50px;
+  padding-top: 60px;
+  padding-bottom: 30px;
   }
-  
+
   .project-section .sections {
     text-align: center;
     margin-bottom: 20px;
     font-size: 35px;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     text-decoration: underline;
-    
   }
   
   .project-section .horizontal-scroll {
     display: flex;
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 40px; /* Space between projects */
-    padding: 10px 0;
     scroll-behavior: smooth; /* Smooth scrolling */
     justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
   
+  
   .project-section .text {
-    text-align: center;
-    margin-bottom: 75px;
-    margin-top: 15px;
-}
+    flex: 3;
+    margin-top: 0px;
+    margin-bottom: 45px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
 
   .project-section .project-box {
     flex: 0 0 14rem; /* Fixed width for each project */
@@ -278,12 +289,17 @@ nav .right a:last-child:hover {
     border: 1.5px solid var(--lining-color);
     border-radius: 15px;
     /* padding: 15px; */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.61);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.267);
     text-align: center;
     padding: 1rem;
-    
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for scaling */
   }
-  
+
+  .project-section .project-box:hover {
+    transform: scale(1.05); /* Grow the box slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.614);
+  }
+
   .project-section .project-box img {
     width: 100%;
     height: 8rem;
@@ -313,67 +329,141 @@ nav .right a:last-child:hover {
 
 /* SECTION 4: Contact */
 .contact-section {
-    padding: 0 50px;
-    /* margin-bottom: 100px; */
     background-color: var(--background-color2);
+    padding: 0 50px;
     padding-top: 60px;
     padding-bottom: 60px;
   }
   
   .contact-section h2 {
-    /* text-align: center; */
+    text-align: center;
+    /* margin-bottom: 20px; */
     font-size: 35px;
     padding-bottom: 15px;
     text-decoration: underline;
   }
   
-  .contact-section .group {
-    display: flex;
-    gap: 50px;
-  }
-  
   .contact-section .text {
     flex: 3;
     margin-top: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
+/* Model open button */
+/* Style for the "open-modal" button */
+#open-modal {
+    /* font-family: 'Poppins', sans-serif; Clean, modern font */
+    font-size: 16px; /* Readable font size */
+    font-weight: bold; /* Make it stand out */
+    color: white; /* Text color */
+    /* background: linear-gradient(90deg, #ff7eb3, #ff758c); */
+    border: none; /* No border for a clean look */
+    padding: 15px 30px; /* Spacing around the text */
+    border-radius: 10px; /* Rounded edges */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions */
+    /* height: 50px; */
+    /* transition: 0.1s; */
+    /* width: 100%; */
+    background-color: var(--hover-color);
+    display: block; /* Ensure the button behaves like a block for centering */
+    margin: 0 auto; /* Center the button horizontally */
   }
   
-  .contact-section .group form {
-    flex: 3;
-    display: flex;
-    gap: 40px;
-  }
+  /* Hover effect for "open-modal" button */
+  #open-modal:hover {
+    /* background: linear-gradient(90deg, #ff758c, #ff7eb3); Invert gradient */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 
-  .contact-section .group form .left {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-section .group form .right {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    
+    filter: brightness(0.8);
+    transition: 0.2s;
   }
   
-  .contact-section .group form input,
-  .contact-section .group form textarea {
+  /* Active state for button */
+  #open-modal:active {
+    transform: translateY(0); /* Remove lift on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Original shadow */
+  }
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  }
+
+  
+  /* Modal content box */
+  .modal-content {
+    background-color: var(--background-color2);
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 300px; /* Ensure a minimum size for smaller screens */
+    position: relative;
+    top: 20%;
+    color: white;
+    padding-top: 50px;
+  }
+  
+  /* Close button */
+  .close-button {
+    color: var(--hover-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -35px;
+  }
+  
+  .close-button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s;
+  }
+  
+  /* Form inputs inside modal */
+  .modal-content form input,
+  .modal-content form textarea {
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     border: 2px solid var(--hover-color);
     background-color: transparent;
     padding: 15px 20px;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     outline: none;
     resize: none;
     color: white;
-    border-radius:  10px;
-    width: 400px;
+    border-radius: 10px;
   }
 
-  .contact-section .group form button {
+  .modal-content form input:focus,
+  .modal-content form textarea:focus {
+    border: 2px solid white;
+  }
+
+  .modal-content form label {
+    color: var(--hover-color);
+  }
+  .modal-content form input::placeholder,
+  .modal-content form textarea::placeholder {
+    color: rgb(64, 64, 64);
+  }
+
+  /* Form button */
+  .modal-content form button {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     color: #fff;
@@ -381,19 +471,28 @@ nav .right a:last-child:hover {
     border: none;
     height: 50px;
     cursor: pointer;
-    transition: .1s;
-    width: 50%;
-    margin-top: 10px;
+    transition: 0.1s;
+    width: 40%;
     border-radius: 10px;
+    background-color: var(--hover-color);
+    display: block;
     margin-left: auto;
-    background-color:var(--hover-color);
+    display: flex; /* Makes content inside the button flexible */
+    align-items: center; /* Vertically centers text and image */
+    justify-content: center; /* Centers content horizontally */
+    gap: 10px; /* Adds spacing between text and image */
   }
   
-  .contact-section .group form button:hover {
-    filter: brightness(.8);
-    transition: .2s;
+  .modal-content form button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s;
   }
 
+  .modal-content form button img {
+    width: 20px; /* Adjust size of the image */
+    height: 20px; /* Adjust size of the image */
+  }
+  
   /* SECTION 5:Footer */
   footer {
     align-items: center;
@@ -406,7 +505,7 @@ nav .right a:last-child:hover {
   footer p {
     color: white;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
 
   }
 
