@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/static/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,19 +21,31 @@
     />
   </head>
   <body>
-    <!-- NAVBAR -->
+    <!-- SECTION 1: NAVBAR -->
     <nav>
-      <div class="left">
+      <div class="redirector">
         <a href="#skills">Skills</a>
         <span class="separator">|</span>
         <a href="#projects">Projects</a>
         <span class="separator">|</span>
         <a href="#contact">Contact</a>
       </div>
-      <div class="middle">
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu">
+        <button id="dropdown-toggle">☰</button>
+        <div class="dropdown-content">
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="full-name">
         <a href="#">Mohammed <span class="no-break">Zareef-Mustafa</span></a>
       </div>
-      <div class="right">
+
+      <div class="socials">
         <a
           href="https://www.linkedin.com/in/mohammed-zareef-mustafa/"
           target="_blank"
@@ -41,23 +53,39 @@
           <i class="fa-brands fa-linkedin"></i>
           <span>LinkedIn</span>
         </a>
-
         <a href="https://github.com/mzareefmustafa" target="_blank">
           <i class="fa-brands fa-github"></i>
           <span>GitHub</span>
         </a>
-
         <a href="mailto:mzareefmustafa@gmail.com" target="_blank">
           <i class="fa-solid fa-envelope"></i>
           <span>Email</span>
         </a>
       </div>
     </nav>
+
     <main>
-      <!-- SECTION 1: HERO -->
+      <!-- SECTION 2: HERO -->
       <section class="hero-section">
+        <div class="socials">
+          <a
+            href="https://www.linkedin.com/in/mohammed-zareef-mustafa/"
+            target="_blank"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/mzareefmustafa" target="_blank">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:mzareefmustafa@gmail.com" target="_blank">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+          </a>
+        </div>
         <div class="text">
-          <h2>Hi, I'm Mohammed 👋🏾</h2>
+          <h2>Hi, I'm <span class="no-break">Mohammed 👋🏾</span></h2>
           <p>
             I’m a recent UC Berkeley graduate with a B.A. in Data Science and 7+
             years of hands-on experience in software engineering. I’m passionate
@@ -80,10 +108,14 @@
           </p>
         </div>
         <div class="headshot">
-          <img src="assets/MyPortrait2-copy.webp" alt="Headshot of Mohammed" />
+          <img
+            src="/static/assets/MyPortrait2-copy.webp"
+            alt="Headshot of Mohammed"
+          />
         </div>
       </section>
-      <!-- SECTION 2: SKILLS -->
+
+      <!-- SECTION 3: SKILLS -->
       <section id="skills" class="skills-section">
         <h2 class="section-titles">Skills</h2>
         <div class="text">
@@ -94,27 +126,30 @@
         <h3 class="skill-sections-title">Programming Languages</h3>
         <div class="skill-sets">
           <div class="skill">
-            <img src="assets/python-icon.png" alt="Python logo" />
+            <img src="/static/assets/python-icon.png" alt="Python logo" />
             <span>Python</span>
           </div>
           <div class="skill">
-            <img src="assets/html-logo.png" alt="HTML logo" />
+            <img src="/static/assets/html-logo.png" alt="HTML logo" />
             <span>HTML</span>
           </div>
           <div class="skill">
-            <img src="assets/css-logo.png" alt="CSS logo" />
+            <img src="/static/assets/css-logo.png" alt="CSS logo" />
             <span>CSS</span>
           </div>
           <div class="skill">
-            <img src="assets/javascript-logo.png" alt="Javascript logo" />
+            <img
+              src="/static/assets/javascript-logo.png"
+              alt="Javascript logo"
+            />
             <span>Javascript</span>
           </div>
           <div class="skill">
-            <img src="assets/java-logo.png" alt="Java logo" />
+            <img src="/static/assets/java-logo.png" alt="Java logo" />
             <span>Java</span>
           </div>
           <div class="skill">
-            <img src="assets/database-logo.png" alt="SQL logo" />
+            <img src="/static/assets/database-logo.png" alt="SQL logo" />
             <span>SQL</span>
           </div>
           <!-- <div class="skill">
@@ -122,15 +157,15 @@
             <span>Go</span>
           </div> -->
           <div class="skill">
-            <img src="assets/C-sharp-logo.png" alt="C# logo" />
+            <img src="/static/assets/C-sharp-logo.png" alt="C# logo" />
             <span>C#</span>
           </div>
           <div class="skill">
-            <img src="assets/R-logo.png" alt="R logo" />
+            <img src="/static/assets/R-logo.png" alt="R logo" />
             <span>R</span>
           </div>
           <div class="skill">
-            <img src="assets/lambda-logo.png" alt="Scheme logo" />
+            <img src="/static/assets/lambda-logo.png" alt="Scheme logo" />
             <span>Scheme</span>
           </div>
         </div>
@@ -169,7 +204,7 @@
             <span>Unit Testing</span>
           </div>
           <div class="skill">
-            <img src="assets/Git-logo.png" alt="Git logo" />
+            <img src="/static/assets/Git-logo.png" alt="Git logo" />
             <span>Git</span>
           </div>
         </div>
@@ -206,7 +241,7 @@
         </div>
       </section>
 
-      <!-- SECTION 3: PROJECTS -->
+      <!-- SECTION 4: PROJECTS -->
       <section id="projects" class="project-section">
         <h2 class="section-titles">Projects</h2>
         <div class="text">
@@ -220,9 +255,12 @@
               target="_blank"
             >
               <picture>
-                <source srcset="assets/gen-graph.webp" type="image/webp" />
+                <source
+                  srcset="/static/assets/gen-graph.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="assets/gen-graph.webp"
+                  src="/static/assets/gen-graph.webp"
                   alt="Scheme-Interpreter Image"
                 />
               </picture>
@@ -241,9 +279,12 @@
               target="_blank"
             >
               <picture>
-                <source srcset="assets/neural-network.webp" type="image/webp" />
+                <source
+                  srcset="/static/assets/neural-network.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="assets/neural-network.webp"
+                  src="/static/assets/neural-network.webp"
                   alt="Neural Network Image"
                 />
               </picture>
@@ -262,9 +303,12 @@
               target="_blank"
             >
               <picture>
-                <source srcset="assets/neural-network.webp" type="image/webp" />
+                <source
+                  srcset="/static/assets/neural-network.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="assets/neural-network.webp"
+                  src="/static/assets/neural-network.webp"
                   alt="Neural Network Image"
                 />
               </picture>
@@ -283,9 +327,12 @@
               target="_blank"
             >
               <picture>
-                <source srcset="assets/neural-network.webp" type="image/webp" />
+                <source
+                  srcset="/static/assets/neural-network.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="assets/neural-network.webp"
+                  src="/static/assets/neural-network.webp"
                   alt="Neural Network Image"
                 />
               </picture>
@@ -304,9 +351,12 @@
               target="_blank"
             >
               <picture>
-                <source srcset="assets/neural-network.webp" type="image/webp" />
+                <source
+                  srcset="/static/assets/neural-network.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="assets/neural-network.webp"
+                  src="/static/assets/neural-network.webp"
                   alt="Neural Network Image"
                 />
               </picture>
@@ -322,7 +372,7 @@
         </div>
       </section>
 
-      <!-- SECTION 4: Contact -->
+      <!-- SECTION 5: Contact -->
       <section id="contact" class="contact-section">
         <h2 class="section-titles">Contacts</h2>
 
@@ -339,7 +389,7 @@
         <div id="contact-modal" class="modal">
           <div class="modal-content">
             <span class="close-button">&times;</span>
-            <form>
+            <form id="contact-form">
               <label for="name">Name</label>
               <input
                 placeholder="Enter Your Name Here"
@@ -368,17 +418,17 @@
 
               <button type="submit">
                 Send Message
-                <img src="assets/send-icon.png" alt="send logo" />
+                <img src="/static/assets/send-icon.png" alt="send logo" />
               </button>
             </form>
           </div>
         </div>
       </section>
     </main>
-    <!-- SECTION 5:Footer -->
+    <!-- SECTION 6:Footer -->
     <footer>
       <p>© 2025 Mohammed Zareef-Mustafa. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
   </body>
 </html>

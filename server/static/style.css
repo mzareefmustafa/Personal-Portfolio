@@ -15,7 +15,7 @@
 }
 
 main {
-    padding-top: 80px; /* Matches the height of the navbar */
+    padding-top: 80px; /* padding for underneath the navbar */
 }
 
 body {
@@ -27,6 +27,11 @@ body {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+}
+
+html, body {
+  min-width: 320px; 
+  overflow-x: hidden; 
 }
 
 p {
@@ -47,6 +52,8 @@ a {
     text-decoration: underline;
 }
 
+/* SECTION 1: NAVBAR */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -57,17 +64,18 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
+    /* max-width: 1440px; */
     z-index: 1000;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px); 
 }
 
-nav .left, nav .right {
-    display: flex; /* Ensures proper alignment of content in these sections */
+nav .redirector, nav .socials {
+    display: flex; 
     align-items: center;
 }
 
-nav .left a {
+nav .redirector a {
     color: var(--text-color);
     padding: 0 15px;
     transition: 0.1s;
@@ -75,46 +83,47 @@ nav .left a {
     text-decoration: none;
 }
 
-nav .left .separator {
+nav .redirector .separator {
     color: var(--hover-color);
     font-size: 18px;
 }
 
-/* Optional: Adjust flexbox settings for consistent layout */
-nav .left {
+nav .redirector {
     display: flex;
     align-items: center;
-    gap: 0; /* Ensure no extra gap from flexbox if using padding/margin */
+    gap: 0; 
 }
 
 
-nav .left a:hover {
+nav .redirector a:hover {
     color: var(--hover-color);
 }
 
-nav .middle {
+nav .full-name {
     text-align: center;
-    flex: 1; /* Ensures the middle section takes up space for centering */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    position: absolute; /* Removes it from the Flexbox flow */
-    left: 50%; /* Centers horizontally */
-    transform: translateX(-50%); /* Adjusts to true center */
+    justify-content: center; 
+    align-items: center; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
 }
 
-nav .middle a {
+nav .full-name a {
     color: var(--text-color);
-    font-size: 25px; /* Adjust as needed */
-    font-weight: 600; /* Keeps bold styling */
-    text-align: center; /* Ensures multi-line text is center-aligned */
-    line-height: 1.2; /* Adjust line spacing between lines */
-    margin: 0; /* Removes any default margin */
-    white-space: normal; /* Allows wrapping of text */
-    text-decoration: none; /* Removes underline */
+    font-size: 25px; 
+    font-weight: 600; 
+    text-align: center; 
+    line-height: 1.2; 
+    margin: 0; 
+    white-space: normal; 
+    text-decoration: none; 
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-nav .middle a:hover {
+nav .full-name a:hover {
     color: var(--hover-color);
 }
 
@@ -122,33 +131,57 @@ nav .middle a:hover {
     white-space: nowrap;
 }
 
-nav .right a {
+nav .socials a {
     color: var(--text-color);
     margin: 0 10px;
     transition: .1s;
 }
 
-nav .right a:hover {
+nav .socials a:hover {
     color: var(--hover-color);
 }
 
-nav .right a span {
+nav .socials a span {
     margin-left: 4px;
 }
 
-nav .right a:last-child {
+nav .socials a:last-child {
     color: var(--background-color);
     background-color: var(--text-color);
     padding: 5px 15px;
     border-radius: 5px;
 }
 
-/* fix media hover of this element */
-nav .right a:last-child:hover {
+nav .socials a:last-child:hover {
     background-color: var(--hover-color);
 }
 
-/* SECTION 1: HERO  */
+nav .redirector a:hover {
+  color: var(--hover-color);
+}
+
+/* Dropdown Menu Styles for Small Screens */
+
+nav .dropdown-menu {
+  display: none; /* Hide dropdown by default */
+}
+
+nav .dropdown-menu button {
+  color: var(--text-color);
+  padding: 0 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+  font-size: 40px;
+  padding-bottom: 8px;
+}
+
+
+
+/* SECTION 2: HERO  */
+
 .hero-section {
     display: flex;
     justify-content: space-between;
@@ -157,12 +190,14 @@ nav .right a:last-child:hover {
     padding: 0 50px;
     padding-top: 60px;
     padding-bottom: 60px;
+    max-width: 1640px; /* Prevent expanding beyond 1440px (or your chosen limit) */
+    margin: 0 auto; /* Centers the content on wider screens */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 .hero-section .text {
-    flex: 5;
+    flex: 7;
 }
-
 
 .hero-section .text h2 {
     font-size: 40px;
@@ -182,7 +217,11 @@ nav .right a:last-child:hover {
     object-fit: cover;
 }
 
-/* SECTION 2: SKILLS */
+.hero-section .socials {
+  display: none;
+}
+
+/* SECTION 3: SKILLS */
 
 .skills-section {
     background-color: var(--background-color2);
@@ -203,8 +242,6 @@ nav .right a:last-child:hover {
     border: 1.5px solid var(--background-color);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.325);
     border-radius: 5px;
-    /* max-width: 300px; */
-
 }
 
 .skills-section .skill-sets .skill img {
@@ -266,8 +303,8 @@ nav .right a:last-child:hover {
   .project-section .horizontal-scroll {
     display: flex;
     overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 40px; /* Space between projects */
-    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 40px;
+    scroll-behavior: smooth;
     justify-content: center;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -284,7 +321,7 @@ nav .right a:last-child:hover {
   }
 
   .project-section .project-box {
-    flex: 0 0 14rem; /* Fixed width for each project */
+    flex: 0 0 14rem; 
     background-color: transparent;
     border: 1.5px solid var(--lining-color);
     border-radius: 15px;
@@ -292,11 +329,11 @@ nav .right a:last-child:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.267);
     text-align: center;
     padding: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for scaling */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
   }
 
   .project-section .project-box:hover {
-    transform: scale(1.05); /* Grow the box slightly on hover */
+    transform: scale(1.05); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.614);
   }
 
@@ -314,7 +351,6 @@ nav .right a:last-child:hover {
     font-size: .9rem;
     font-weight: 600;
     color: var(--text-color);
-
   }
 
   .project-box h5 {
@@ -328,6 +364,7 @@ nav .right a:last-child:hover {
   }
 
 /* SECTION 4: Contact */
+
 .contact-section {
     background-color: var(--background-color2);
     padding: 0 50px;
@@ -351,47 +388,39 @@ nav .right a:last-child:hover {
     padding-right: 300px;
     text-align: center; 
   }
-/* Model open button */
+
 /* Style for the "open-modal" button */
 #open-modal {
-    /* font-family: 'Poppins', sans-serif; Clean, modern font */
-    font-size: 16px; /* Readable font size */
-    font-weight: bold; /* Make it stand out */
-    color: white; /* Text color */
-    /* background: linear-gradient(90deg, #ff7eb3, #ff758c); */
-    border: none; /* No border for a clean look */
-    padding: 15px 30px; /* Spacing around the text */
-    border-radius: 10px; /* Rounded edges */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transitions */
-    /* height: 50px; */
-    /* transition: 0.1s; */
-    /* width: 100%; */
+    font-size: 16px;
+    font-weight: bold; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
     background-color: var(--hover-color);
-    display: block; /* Ensure the button behaves like a block for centering */
-    margin: 0 auto; /* Center the button horizontally */
+    display: block; 
+    margin: 0 auto; 
   }
   
-  /* Hover effect for "open-modal" button */
   #open-modal:hover {
-    /* background: linear-gradient(90deg, #ff758c, #ff7eb3); Invert gradient */
-    transform: translateY(-3px); /* Lift effect */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
 
     filter: brightness(0.8);
     transition: 0.2s;
   }
   
-  /* Active state for button */
   #open-modal:active {
-    transform: translateY(0); /* Remove lift on click */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Original shadow */
+    transform: translateY(0); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
 
 /* Modal container */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; /* Hide by default */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -399,7 +428,7 @@ nav .right a:last-child:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    background-color: rgba(0, 0, 0, 0.5); 
   }
 
   
@@ -410,14 +439,14 @@ nav .right a:last-child:hover {
     padding: 20px;
     border-radius: 10px;
     width: 40%;
-    min-width: 300px; /* Ensure a minimum size for smaller screens */
+    min-width: 300px; 
     position: relative;
     top: 20%;
     color: white;
     padding-top: 50px;
+    max-width: 700px;
   }
   
-  /* Close button */
   .close-button {
     color: var(--hover-color);
     float: right;
@@ -433,10 +462,10 @@ nav .right a:last-child:hover {
   }
   
   /* Form inputs inside modal */
+
   .modal-content form input,
   .modal-content form textarea {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     border: 2px solid var(--hover-color);
     background-color: transparent;
@@ -462,10 +491,8 @@ nav .right a:last-child:hover {
     color: rgb(64, 64, 64);
   }
 
-  /* Form button */
   .modal-content form button {
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
     color: #fff;
     background-color: var(--link-color);
     border: none;
@@ -477,10 +504,10 @@ nav .right a:last-child:hover {
     background-color: var(--hover-color);
     display: block;
     margin-left: auto;
-    display: flex; /* Makes content inside the button flexible */
-    align-items: center; /* Vertically centers text and image */
-    justify-content: center; /* Centers content horizontally */
-    gap: 10px; /* Adds spacing between text and image */
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
   }
   
   .modal-content form button:hover {
@@ -489,11 +516,12 @@ nav .right a:last-child:hover {
   }
 
   .modal-content form button img {
-    width: 20px; /* Adjust size of the image */
-    height: 20px; /* Adjust size of the image */
+    width: 20px; 
+    height: 20px; 
   }
   
   /* SECTION 5:Footer */
+
   footer {
     align-items: center;
     padding-top: 5px;
@@ -509,57 +537,245 @@ nav .right a:last-child:hover {
 
   }
 
-@media (max-width: 1150px) {
-    /* SECTION 1: HERO */
-    .hero-section .text h2 {
-        font-size: 30px;
-    }
 
+
+  
+/* RESIZING MAIN/GENERAL */
+
+@media (max-width: 1155px) {
+  .skills-section .text,
+  .project-section .text,
+  .contact-section .text {
+      padding-left: 100px;
+      padding-right: 100px;
+  }
 }
+
+@media (max-width: 755px) {
+  .skills-section .text,
+  .project-section .text,
+  .contact-section .text {
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+}
+
+
+/* RESIZING SECTION 1: NAVBAR */
+
+@media (max-width: 600px) {
+
+  nav .socials {
+    display: none; /* Hide the regular nav */
+  }
+}
+
+@media (max-width: 1100px) {
+  /* NAVBAR */
+  nav {
+      padding: 0 20px;
+  }
+  nav .socials a {
+      font-size: 22px;
+      margin: 0 15px;
+  }
+  nav .socials a span {
+      display: none;
+  }
+  nav .socials a:last-child {
+      color: var(--text-color);
+      background-color: transparent;
+      padding: 0px;
+  }
+  nav .socials a:last-child:hover {
+      background-color: transparent;
+      color: var(--hover-color);
+  }
+}
+
+@media (max-width: 840px) {
+  nav .redirector {
+    display: none; /* Hide the regular nav */
+  }
+
+  nav .dropdown-menu {
+    display: block; /* Show dropdown menu button */
+  }
+
+  .dropdown-content {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.88);
+    padding: 0px 0px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    display: block;
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--hover-color);
+  }
+
+  .dropdown-content a:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .dropdown-content.visible {
+    display: block; /* Show dropdown content when toggled */
+  }
+}
+
+@media (max-width: 1250px) {
+  nav .full-name a {
+    white-space: normal; 
+    font-size: 22px;
+  }
+
+  nav .full-name .no-break {
+    display: block; /* Forces the last name to appear on a new line */
+  }
+}
+
+@media (max-width: 430px) {
+  nav .full-name a {
+    font-size: 18px; 
+}
+
+  nav .full-name {
+    text-align: center;
+    bottom: 25%;
+  }
+
+  nav .dropdown-menu button {
+    color: var(--text-color);
+    padding: 0 6px;
+    font-size: 35px;
+    padding-bottom: 11px;
+  }
+
+  nav {
+    padding: 0 15px;
+  }
+}
+
+
+/* RESIZING SECTION 2: HERO */
 
 @media (max-width: 1020px) {
-    /* SECTION 1: HERO */
-    .hero-section  {
-        flex-direction: column-reverse;
-    }
+  .hero-section  {
+      flex-direction: column-reverse;
+  }
 
-    .hero-section .headshot img {
-        width: 300px;
-        /* align-items: center; */
-    }
+  .hero-section .headshot img {
+      width: 300px;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  /* .hero-section {
+      padding: 0 20px;
+  } */
+
+  .hero-section .text h2 {
+      font-size: 30px;
+  }  
+}
+
+@media (max-width: 600px) {
+
+  .hero-section .socials {
+    display: block;
+  }
+
+  .hero-section .socials a {
+    color: var(--text-color);
+    margin: 0 10px;
+    transition: .1s;
+  }
+
+  .hero-section .socials a:hover {
+      color: var(--hover-color);
+  }
+
+  .hero-section .socials a span {
+      margin-left: 4px;
+  }
+
+  .hero-section .socials a:last-child {
+      color: var(--background-color);
+      background-color: var(--text-color);
+      padding: 5px 15px;
+      border-radius: 5px;
+  }
+
+  .hero-section .socials a:last-child:hover {
+      background-color: var(--hover-color);
+  }
+
+  /* .hero-section {
+    padding: 0 20px;
+  } */
+  .hero-section .socials a {
+      font-size: 27px;
+      margin: 0 17px;
+  }
+  .hero-section .socials a span {
+      display: none;
+  }
+  .hero-section .socials a:last-child {
+      color: var(--text-color);
+      background-color: transparent;
+      padding: 0px;
+  }
+  .hero-section .socials a:last-child:hover {
+      background-color: transparent;
+      color: var(--hover-color);
+  }
 
 }
-@media (max-width: 1050px) {
-    /* NAVBAR */
-    nav {
-        padding: 0 20px;
-    }
-    nav .right a {
-        font-size: 22px;
-    }
-    nav .right a span {
-        display: none;
-    }
-    nav .right a:last-child {
-        color: var(--text-color);
-        background-color: transparent;
-        padding: 0px;
-    }
-    nav .right a:last-child:hover {
-        background-color: transparent;
-        color: var(--hover-color);
-    }
 
-    /* Section 1: Hero */
-    .hero-section {
-        padding: 0 20px;
-    }
+@media (max-width: 1150px) {
 
-    .hero-section .text h2 {
-        font-size: 30px;
-    }
+  .hero-section .text h2 {
+      font-size: 30px;
+  }
+}
 
-    /* SECTION 2: SKILLS */
+/* RESIZING SECTION 3: SKILLS */
 
-    
+/* RESIZING SECTION 4: PROJECTS */
+@media (max-width: 1390px) {
+  .project-section .horizontal-scroll {
+    justify-content: flex-start; /* Align content to the left */
+    scroll-snap-type: x mandatory; /* Optional: Makes scrolling smoother */
+  }
+}
+
+/* RESIZING SECTION 5: CONTACT*/
+
+/* RESIZING SECTION 6: FOOTER */
+
+/* RESIZING SECTION: CONTACT-MODEL CONTENTS */
+@media (max-width: 1150px) {
+  .modal-content form button {
+    width: 50%;
+  }
+}
+
+@media (max-width: 880px) {
+  .modal-content form button {
+    width: 100%;
+  }
 }
