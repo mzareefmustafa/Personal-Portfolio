@@ -362,6 +362,10 @@ nav .dropdown-menu button {
   .project-section .project-box p {
     font-size: 12px;
   }
+  
+  .side-note {
+    color: var(--hover-color);
+  }
 
 /* SECTION 4: Contact */
 
