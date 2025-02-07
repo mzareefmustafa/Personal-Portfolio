@@ -1,2 +1,17 @@
+# Virtual environment (contains dependencies, should not be pushed)
+venv/
+
+# API credentials and authentication tokens (Sensitive information)
 client_secret.json
 token.json
+
+# VS Code settings (Personalized IDE settings, not needed in repo)
+.vscode/
+
+# Cache and compiled files (Unnecessary files)
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs and temporary files
+*.log

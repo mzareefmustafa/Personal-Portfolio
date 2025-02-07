@@ -1,21 +1,12 @@
-// ------------------------------
-// Modal and UI Behavior
-// ------------------------------
-
-// Get modals
+// Modal Handling
 const contactModal = document.getElementById("contact-modal");
 const emailVerificationModal = document.getElementById("email-verification-modal");
-
-// Get buttons
 const openModalButton = document.getElementById("open-modal");
-
-// Scope the close buttons to their respective modals
 const closeContactButton = contactModal.querySelector(".close-button");
 const closeVerificationButton = emailVerificationModal.querySelector(".close-button");
 
-// Open email verification modal on "Click Here to Leave a Message"
+// Open email verification modal
 openModalButton.addEventListener("click", () => {
-  // Open the email verification modal and reset its fields
   document.getElementById("verification-email").value = "";
   document.getElementById("verification-code").value = "";
   document.getElementById("code-input-section").style.display = "none";
@@ -23,23 +14,16 @@ openModalButton.addEventListener("click", () => {
   emailVerificationModal.style.display = "block";
 });
 
-// Close contact modal when its close button is clicked
+// Close modals
 closeContactButton.addEventListener("click", () => {
   contactModal.style.display = "none";
 });
 
-// Close verification modal when its close button is clicked
+// Email Verification
 closeVerificationButton.addEventListener("click", () => {
   emailVerificationModal.style.display = "none";
 });
 
-// (Removed the event listener for closing the modals by clicking outside)
-
-// ------------------------------
-// Email Verification Process
-// ------------------------------
-
-// Handle "Verify Email" button click
 const sendVerificationBtn = document.getElementById("send-verification-btn");
 sendVerificationBtn.addEventListener("click", async () => {
   const email = document.getElementById("verification-email").value.trim();
@@ -56,8 +40,7 @@ sendVerificationBtn.addEventListener("click", async () => {
     });
     const result = await response.json();
     if (response.ok) {
-      alert(result.success); // e.g., "A verification code has been sent..."
-      // Show the verification code input section and hide the email input section
+      alert(result.success);
       document.getElementById("email-input-section").style.display = "none";
       document.getElementById("code-input-section").style.display = "block";
     } else {
@@ -69,7 +52,7 @@ sendVerificationBtn.addEventListener("click", async () => {
   }
 });
 
-// Handle "Validate" button click
+// Validate Verification Code
 const validateCodeBtn = document.getElementById("validate-code-btn");
 validateCodeBtn.addEventListener("click", async () => {
   const email = document.getElementById("verification-email").value.trim();
@@ -87,13 +70,12 @@ validateCodeBtn.addEventListener("click", async () => {
     });
     const result = await response.json();
     if (response.ok) {
-      alert(result.success); // e.g., "Email verified successfully!"
+      alert(result.success); 
       emailVerificationModal.style.display = "none";
-      // Pre-fill the email field in the contact form and disable editing
+
       const emailField = document.getElementById("email");
       emailField.value = email;
       emailField.disabled = true;
-      // Open the contact modal
       contactModal.style.display = "block";
     } else {
       alert(result.error);
@@ -104,11 +86,8 @@ validateCodeBtn.addEventListener("click", async () => {
   }
 });
 
-// ------------------------------
-// Existing Contact Form Submission
-// ------------------------------
-
-const contactForm = document.getElementById("contact-form"); // Assuming your form has this ID
+// Contact Form Submission
+const contactForm = document.getElementById("contact-form"); 
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -130,7 +109,7 @@ contactForm.addEventListener("submit", async (event) => {
     if (response.ok) {
       alert(result.success);
       contactModal.style.display = "none";
-      // Optionally, re-enable the email field for next time
+    
       document.getElementById("email").disabled = false;
     } else {
       alert(result.error);
@@ -141,10 +120,7 @@ contactForm.addEventListener("submit", async (event) => {
   }
 });
 
-// ------------------------------
-// Dropdown Functionality (unchanged)
-// ------------------------------
-
+// Dropdown Menu
 const dropdownToggle = document.getElementById('dropdown-toggle');
 const dropdownContent = document.querySelector('.dropdown-content');
 
@@ -158,7 +134,7 @@ document.addEventListener('click', (e) => {
     dropdownContent.classList.remove('visible');
   }
 });
-
+// Prevent default Enter key behavior
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
