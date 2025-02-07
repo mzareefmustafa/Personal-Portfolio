@@ -33,14 +33,17 @@ personal-portfolio/
       ├── templates/
       │   └── index.html
       ├── venv/
-      ├── .gitignore
       ├── app.py
       ├── client_secret.json
-      ├── requirements.txt
-      ├── test_gmail_api.py
       ├── test_oauth.py
       └── token.json
+  └── test/
+      ├── test_gmail_api.py
+      └── test_oauth.py
+  └── .gitignore
+  └── LICENSE.txt
   └── README.md
+
 ```
 
 ## 🛠 Setup & Run

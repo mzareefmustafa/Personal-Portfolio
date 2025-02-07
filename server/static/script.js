@@ -70,21 +70,27 @@ validateCodeBtn.addEventListener("click", async () => {
     });
     const result = await response.json();
     if (response.ok) {
-      alert(result.success); 
+      alert(result.success);
       emailVerificationModal.style.display = "none";
-
       const emailField = document.getElementById("email");
       emailField.value = email;
       emailField.disabled = true;
       contactModal.style.display = "block";
     } else {
       alert(result.error);
+      // If too many failed attempts, close the verification modal and clear fields
+      if (result.error.includes("Too many failed attempts")) {
+        emailVerificationModal.style.display = "none";
+        document.getElementById("verification-email").value = "";
+        document.getElementById("verification-code").value = "";
+      }
     }
   } catch (error) {
     console.error("Error validating verification code:", error);
     alert("Something went wrong. Please try again later.");
   }
 });
+
 
 // Contact Form Submission
 const contactForm = document.getElementById("contact-form"); 

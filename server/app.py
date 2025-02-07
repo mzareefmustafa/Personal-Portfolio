@@ -124,8 +124,9 @@ def send_verification_code():
             return jsonify({'error': 'Email is required'}), 400
         
         code = str(secrets.randbelow(900000) + 100000)  # Generate 6-digit code
-        expires_at = datetime.utcnow() + timedelta(minutes=10)  
-        verification_codes[email] = {"code": code, "expires_at": expires_at}
+        expires_at = datetime.utcnow() + timedelta(minutes=10)
+        # Set attempts to 5 for each email
+        verification_codes[email] = {"code": code, "expires_at": expires_at, "attempts": 5}
         subject = "Your Verification Code"
         body = f"Your verification code is: {code}\nThis code is valid for 10 minutes."
         
@@ -137,7 +138,7 @@ def send_verification_code():
         traceback.print_exc()
         return jsonify({'error': f'Error: {str(e)}'}), 500
 
-# Validate verification code
+# Validate verification code with limited attempts
 @app.route('/validate-verification-code', methods=['POST'])
 def validate_verification_code():
     try:
@@ -148,18 +149,27 @@ def validate_verification_code():
             return jsonify({'error': 'Email and code are required'}), 400
         if email not in verification_codes:
             return jsonify({'error': 'No verification code found for this email'}), 400
+        
         record = verification_codes[email]
         if datetime.utcnow() > record["expires_at"]:
             verification_codes.pop(email, None)
             return jsonify({'error': 'The verification code has expired'}), 400
-        if code != record["code"]:
-            return jsonify({'error': 'Invalid verification code'}), 400
         
+        if code != record["code"]:
+            # Decrement attempts and check if too many failed attempts
+            record["attempts"] -= 1
+            if record["attempts"] <= 0:
+                verification_codes.pop(email, None)
+                return jsonify({'error': 'Too many failed attempts. Verification code is no longer valid.'}), 400
+            return jsonify({'error': f'Invalid verification code. {record["attempts"]} attempts remaining.'}), 400
+        
+        # Correct code: remove record and return success
         verification_codes.pop(email, None)
         return jsonify({'success': 'Email verified successfully!'}), 200
     except Exception as e:
         traceback.print_exc()
         return jsonify({'error': f'Error: {str(e)}'}), 500
+
 
 
 if __name__ == '__main__':
