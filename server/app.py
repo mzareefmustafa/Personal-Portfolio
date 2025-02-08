@@ -163,7 +163,7 @@ def validate_verification_code():
                 return jsonify({'error': 'Too many failed attempts. Verification code is no longer valid.'}), 400
             return jsonify({'error': f'Invalid verification code. {record["attempts"]} attempts remaining.'}), 400
         
-        # Correct code: remove record and return success
+        # remove record and return success
         verification_codes.pop(email, None)
         return jsonify({'success': 'Email verified successfully!'}), 200
     except Exception as e:
