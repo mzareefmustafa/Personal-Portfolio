@@ -79,3 +79,7 @@ python app.py
 5️⃣ **Display in browser**
 
 Visit http://127.0.0.1:5000 in your browser.
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [LICENSE.txt](LICENSE.txt) file for details.
