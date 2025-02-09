@@ -14,7 +14,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 print(os.getcwd()) # Display current working directory
 
 # Gmail API Configuration
-CLIENT_SECRET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'client_secret.json')
+CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_JSON')  # Use environment variable for client secret
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 # Store verification codes with expiration timestamps
@@ -172,5 +172,8 @@ def validate_verification_code():
 
 
 
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
