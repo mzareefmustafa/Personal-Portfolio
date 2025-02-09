@@ -1,4 +1,5 @@
 import os
+import json
 import base64
 import secrets
 from datetime import datetime, timedelta
@@ -14,8 +15,11 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 print(os.getcwd()) # Display current working directory
 
 # Gmail API Configuration
-CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_JSON')  # Use environment variable for client secret
+CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_FILE')  # Match the env variable name
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+
+
+TOKEN_JSON = os.getenv('TOKEN_JSON')
 
 # Store verification codes with expiration timestamps
 verification_codes = {}
@@ -23,24 +27,20 @@ verification_codes = {}
 # Authenticate and refresh Gmail API credentials
 def get_gmail_credentials():
     creds = None
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-
+    if TOKEN_JSON:
+        creds = Credentials.from_authorized_user_info(json.loads(TOKEN_JSON), SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            try:
-                creds.refresh(Request())
-            except Exception as e:
-                print("Error refreshing token:", e)
-                creds = None
-        if not creds:
+            creds.refresh(Request())
+        else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
             creds = flow.run_local_server(port=8080, prompt='consent', authorization_prompt_message='')
         
-        with open('token.json', 'w') as token_file:
-            token_file.write(creds.to_json())
+        # Store the refreshed token in the environment variable
+        os.environ['TOKEN_JSON'] = creds.to_json()
 
     return creds
+
 
 
 # Send email using Gmail API
