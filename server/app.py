@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 print(os.getcwd()) # Display current working directory
 
 # Gmail API Configuration
-CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_FILE')  # Match the env variable name
+CLIENT_SECRET_FILE = "client_secret.json"
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 
@@ -27,19 +27,21 @@ verification_codes = {}
 # Authenticate and refresh Gmail API credentials
 def get_gmail_credentials():
     creds = None
-    if TOKEN_JSON:
-        creds = Credentials.from_authorized_user_info(json.loads(TOKEN_JSON), SCOPES)
+    token_json = os.getenv("TOKEN_JSON")
+
+    if token_json:
+        creds = Credentials.from_authorized_user_info(json.loads(token_json), SCOPES)
+
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
+            os.environ["TOKEN_JSON"] = creds.to_json()  # Save the refreshed token
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(port=8080, prompt='consent', authorization_prompt_message='')
-        
-        # Store the refreshed token in the environment variable
-        os.environ['TOKEN_JSON'] = creds.to_json()
+            print("Token is missing or invalid. Re-authentication required.")
+            return None
 
     return creds
+
 
 
 
@@ -176,4 +178,4 @@ def validate_verification_code():
 #     app.run(debug=True)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))
