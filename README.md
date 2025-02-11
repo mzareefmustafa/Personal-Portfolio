@@ -2,6 +2,8 @@
 
 A **modern, full-stack portfolio website** showcasing my **projects, skills, and contact info**. Built with **Flask, HTML, CSS, and JavaScript**, it includes email verification, a dynamic contact form, and a sleek UI.
 
+Access the site [here](https://mzareefmustafa.com)
+
 ## 🚀 Features
 
 - **🖥️ Responsive Design** – Works on all screen sizes.
@@ -78,7 +80,7 @@ python app.py
 
 5️⃣ **Display in browser**
 
-Visit http://127.0.0.1:5000 in your browser.
+In your browser, Visit http url provided by the terminal.
 
 ## 📜 License
 
