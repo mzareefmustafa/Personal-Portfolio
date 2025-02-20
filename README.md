@@ -82,6 +82,19 @@ python app.py
 
 In your browser, Visit http url provided by the terminal.
 
+6️⃣ **Optional: Enable Contact Section**
+
+```
+    1. In script.js, set DISABLE_CONTACT_SECTION to false.
+    2. Uncomment all the code in app.py.
+    3. Create your own Gmail API OAuth 2.0 and download the client_secret.json file it provides.
+    4. Place client_secret.json in the server/ directory.
+    5. Update app.py with your personal information and Gmail API credentials.
+    6. Run python app.py while in the server/ directory.
+    7. In your browser, visit the HTTP URL provided by the terminal.
+    8. Test the contact section functionality by sending yourself a message.
+```
+
 ## 📜 License
 
 This project is licensed under the **MIT License**. See the [LICENSE.txt](LICENSE.txt) file for details.
