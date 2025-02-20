@@ -1,17 +1,17 @@
-# import os
-# import json
-# import base64
-# import secrets
-# from datetime import datetime, timedelta
-# from flask import Flask, request, jsonify, render_template
-# from google_auth_oauthlib.flow import InstalledAppFlow
-# from google.auth.transport.requests import Request
-# from google.oauth2.credentials import Credentials
-# from googleapiclient.discovery import build
-# import traceback
-# import requests
+import os
+import json
+import base64
+import secrets
+from datetime import datetime, timedelta
+from flask import Flask, request, jsonify, render_template
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+import traceback
+import requests
 
-# app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 # # Gmail API Configuration
 # CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_FILE', 'client_secret.json')
@@ -79,9 +79,9 @@
 
 
 
-# @app.route('/')
-# def home():
-#    return render_template('index.html')
+@app.route('/')
+def home():
+   return render_template('index.html')
 
 
 # # Handle contact form submission
@@ -198,5 +198,5 @@
 
 
 
-# if __name__ == '__main__':
-#    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))
