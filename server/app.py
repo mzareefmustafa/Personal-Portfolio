@@ -14,7 +14,7 @@ import requests
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 # Gmail API Configuration
-CLIENT_SECRET_FILE = "client_secret.json"
+CLIENT_SECRET_FILE = os.getenv('CLIENT_SECRET_FILE', 'client_secret.json')
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 # Store verification codes with expiration timestamps
@@ -23,10 +23,11 @@ verification_codes = {}
 # Authenticate and refresh Gmail API credentials
 def get_gmail_credentials():
     creds = None
+    token_file_path = os.getenv('TOKEN_JSON', 'token.json')  # Get path from environment variable
 
     # Check if the token file exists
-    if os.path.exists("token.json"):
-        with open("token.json", "r") as token_file:
+    if os.path.exists(token_file_path):
+        with open(token_file_path, "r") as token_file:
             creds = Credentials.from_authorized_user_info(json.load(token_file), SCOPES)
 
     # If token is expired and refresh token is available, refresh it
@@ -34,7 +35,7 @@ def get_gmail_credentials():
         try:
             creds.refresh(Request())
             # Save refreshed token to file
-            with open("token.json", "w") as token_file:
+            with open(token_file_path, "w") as token_file:
                 token_file.write(creds.to_json())
         except Exception as e:
             print("Token refresh failed:", str(e))
@@ -42,13 +43,14 @@ def get_gmail_credentials():
 
     # If no valid creds, authenticate and generate a new token
     if not creds or not creds.valid:
-        flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
+        flow = InstalledAppFlow.from_client_secrets_file(os.getenv('CLIENT_SECRET_FILE', 'client_secret.json'), SCOPES)
         creds = flow.run_local_server(port=8080, prompt='consent')
         # Save the new token to a file
-        with open("token.json", "w") as token_file:
+        with open(token_file_path, "w") as token_file:
             token_file.write(creds.to_json())
 
     return creds
+
 
 
 
