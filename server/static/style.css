@@ -758,7 +758,18 @@ nav .dropdown-menu button {
 }
 
 /* RESIZING SECTION 3: SKILLS */
+@media (max-width: 374px) {
+  
 
+.skills-section .skill-sets .skill img {
+    width: 25px;
+    height: 25px;
+}
+
+.skills-section .skill-sets .skill span {
+    font-size: 13px;
+}
+}
 /* RESIZING SECTION 4: PROJECTS */
 @media (max-width: 1390px) {
   .project-section .horizontal-scroll {
