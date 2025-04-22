@@ -1,0 +1,796 @@
+
+:root {
+    --text-color: white;
+    --link-color: #4a76ee;
+    --background-color: rgb(47, 47, 47);
+    --hover-color: rgb(167, 167, 167);
+    --lining-color: rgb(33, 33, 33);
+    --background-color2: rgb(33, 33, 33);
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    padding-top: 80px; /* padding for underneath the navbar */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+    color: white
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+html, body {
+  min-width: 320px; 
+  overflow-x: hidden; 
+}
+
+p {
+    color: white;
+}
+
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 300ms ease;
+}
+
+.section-titles {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+}
+
+/* SECTION 1: NAVBAR */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    height: 80px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.88);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* max-width: 1440px; */
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+}
+
+nav .redirector, nav .socials {
+    display: flex; 
+    align-items: center;
+}
+
+nav .redirector a {
+    color: var(--text-color);
+    padding: 0 15px;
+    transition: 0.1s;
+    position: relative;
+    text-decoration: none;
+}
+
+nav .redirector .separator {
+    color: var(--hover-color);
+    font-size: 18px;
+}
+
+nav .redirector {
+    display: flex;
+    align-items: center;
+    gap: 0; 
+}
+
+
+nav .redirector a:hover {
+    color: var(--hover-color);
+}
+
+nav .full-name {
+    text-align: center;
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+nav .full-name a {
+    color: var(--text-color);
+    font-size: 25px; 
+    font-weight: 600; 
+    text-align: center; 
+    line-height: 1.2; 
+    margin: 0; 
+    white-space: normal; 
+    text-decoration: none; 
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+nav .full-name a:hover {
+    color: var(--hover-color);
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+nav .socials a {
+    color: var(--text-color);
+    margin: 0 10px;
+    transition: .1s;
+}
+
+nav .socials a:hover {
+    color: var(--hover-color);
+}
+
+nav .socials a span {
+    margin-left: 4px;
+}
+
+nav .socials a:last-child {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+nav .socials a:last-child:hover {
+    background-color: var(--hover-color);
+}
+
+nav .redirector a:hover {
+  color: var(--hover-color);
+}
+
+/* Dropdown Menu Styles for Small Screens */
+
+nav .dropdown-menu {
+  display: none; /* Hide dropdown by default */
+}
+
+nav .dropdown-menu button {
+  color: var(--text-color);
+  padding: 0 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+  font-size: 40px;
+  padding-bottom: 8px;
+}
+
+
+
+/* SECTION 2: HERO  */
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    max-width: 1640px; /* Prevent expanding beyond 1440px (or your chosen limit) */
+    margin: 0 auto; /* Centers the content on wider screens */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.hero-section .text {
+    flex: 7;
+}
+
+.hero-section .text h2 {
+    font-size: 40px;
+}
+
+.hero-section .headshot {
+    flex: 2;
+    display: flex;
+    justify-content: right;
+}
+
+.hero-section img {
+    display: block;
+    width: 350px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.61);
+    object-fit: cover;
+}
+
+.hero-section .socials {
+  display: none;
+}
+
+/* SECTION 3: SKILLS */
+
+.skills-section {
+    background-color: var(--background-color2);
+    padding: 0 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.skills-section .skill-sets .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 150px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1.5px solid var(--background-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.325);
+    border-radius: 5px;
+}
+
+.skills-section .skill-sets .skill img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+.skills-section .skill-sets .skill span {
+    font-size: 18px;
+}
+
+.skills-section .text {
+    flex: 3;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
+
+.skills-section .skill-sections-title {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.skills-section .skill-sets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.skills-section .skill-sets:last-child {
+    margin-bottom: 0px;
+}
+
+
+
+/* SECTION 3: PROJECTS */
+
+.project-section {
+  padding: 0 50px;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  }
+
+  .project-section .sections {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 35px;
+    /* padding-bottom: 15px; */
+    text-decoration: underline;
+  }
+  
+  .project-section .horizontal-scroll {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 40px;
+    scroll-behavior: smooth;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  
+  .project-section .text {
+    flex: 3;
+    margin-top: 0px;
+    margin-bottom: 45px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
+
+  .project-section .project-box {
+    flex: 0 0 14rem; 
+    background-color: transparent;
+    border: 1.5px solid var(--lining-color);
+    border-radius: 15px;
+    /* padding: 15px; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.267);
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  }
+
+  .project-section .project-box:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.614);
+  }
+
+  .project-section .project-box img {
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 0rem;
+    
+  }
+
+  .project-section .project-box h4 {
+    margin-bottom: 0.3rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .project-box h5 {
+    margin-bottom: 0.3rem;
+    font-weight: 375;
+    color: var(--text-color);
+    }
+
+  .project-section .project-box p {
+    font-size: 12px;
+  }
+  
+  .side-note {
+    color: var(--hover-color);
+  }
+
+/* SECTION 4: Contact */
+
+.contact-section {
+    background-color: var(--background-color2);
+    padding: 0 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .contact-section h2 {
+    text-align: center;
+    /* margin-bottom: 20px; */
+    font-size: 35px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+  }
+  
+  .contact-section .text {
+    flex: 3;
+    margin-top: 0px;
+    margin-bottom: 45px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: center; 
+  }
+
+/* Style for the "open-modal" button */
+#open-modal {
+    font-size: 16px;
+    font-weight: bold; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+    background-color: var(--hover-color);
+    display: block; 
+    margin: 0 auto; 
+  }
+  
+  #open-modal:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); 
+
+    filter: brightness(0.8);
+    transition: 0.2s;
+  }
+  
+  #open-modal:active {
+    transform: translateY(0); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+/* Modal container */
+.modal {
+    display: none; /* Hide by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+
+  
+  /* Modal content box */
+  .modal-content {
+    background-color: var(--background-color2);
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 300px; 
+    position: relative;
+    top: 20%;
+    color: white;
+    padding-top: 50px;
+    max-width: 700px;
+  }
+  
+  .close-button {
+    color: var(--hover-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -35px;
+  }
+  
+  .close-button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s;
+  }
+  
+  /* Form inputs inside modal */
+
+  .modal-content form input,
+  .modal-content form textarea {
+    width: 100%;
+    font-size: 14px;
+    border: 2px solid var(--hover-color);
+    background-color: transparent;
+    padding: 15px 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    resize: none;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .modal-content form input:focus,
+  .modal-content form textarea:focus {
+    border: 2px solid white;
+  }
+
+  .modal-content form label {
+    color: var(--hover-color);
+  }
+  .modal-content form input::placeholder,
+  .modal-content form textarea::placeholder {
+    color: rgb(64, 64, 64);
+  }
+
+  .modal-content form button {
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--link-color);
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.1s;
+    width: 40%;
+    border-radius: 10px;
+    background-color: var(--hover-color);
+    display: block;
+    margin-left: auto;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
+  }
+  
+  .modal-content form button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s;
+  }
+
+  .modal-content form button img {
+    width: 20px; 
+    height: 20px; 
+  }
+  
+  /* SECTION 5:Footer */
+
+  footer {
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--background-color);
+    border-top: 2px solid var(--lining-color);
+  }
+
+  footer p {
+    color: white;
+    text-align: center;
+    font-size: 10px;
+
+  }
+
+
+
+  
+/* RESIZING MAIN/GENERAL */
+
+@media (max-width: 1155px) {
+  .skills-section .text,
+  .project-section .text,
+  .contact-section .text {
+      padding-left: 100px;
+      padding-right: 100px;
+  }
+}
+
+@media (max-width: 755px) {
+  .skills-section .text,
+  .project-section .text,
+  .contact-section .text {
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+}
+
+
+/* RESIZING SECTION 1: NAVBAR */
+
+@media (max-width: 600px) {
+
+  nav .socials {
+    display: none; /* Hide the regular nav */
+  }
+}
+
+@media (max-width: 1100px) {
+  /* NAVBAR */
+  nav {
+      padding: 0 20px;
+  }
+  nav .socials a {
+      font-size: 22px;
+      margin: 0 15px;
+  }
+  nav .socials a span {
+      display: none;
+  }
+  nav .socials a:last-child {
+      color: var(--text-color);
+      background-color: transparent;
+      padding: 0px;
+  }
+  nav .socials a:last-child:hover {
+      background-color: transparent;
+      color: var(--hover-color);
+  }
+}
+
+@media (max-width: 840px) {
+  nav .redirector {
+    display: none; /* Hide the regular nav */
+  }
+
+  nav .dropdown-menu {
+    display: block; /* Show dropdown menu button */
+  }
+
+  .dropdown-content {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.88);
+    padding: 0px 0px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    display: block;
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--hover-color);
+  }
+
+  .dropdown-content a:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .dropdown-content.visible {
+    display: block; /* Show dropdown content when toggled */
+  }
+}
+
+@media (max-width: 1250px) {
+  nav .full-name a {
+    white-space: normal; 
+    font-size: 22px;
+  }
+
+  nav .full-name .no-break {
+    display: block; /* Forces the last name to appear on a new line */
+  }
+}
+
+@media (max-width: 430px) {
+  nav .full-name a {
+    font-size: 18px; 
+}
+
+  nav .full-name {
+    text-align: center;
+    bottom: 25%;
+  }
+
+  nav .dropdown-menu button {
+    color: var(--text-color);
+    padding: 0 6px;
+    font-size: 35px;
+    padding-bottom: 11px;
+  }
+
+  nav {
+    padding: 0 15px;
+  }
+}
+
+
+/* RESIZING SECTION 2: HERO */
+
+@media (max-width: 1020px) {
+  .hero-section  {
+      flex-direction: column-reverse;
+  }
+
+  .hero-section .headshot img {
+      width: 300px;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  /* .hero-section {
+      padding: 0 20px;
+  } */
+
+  .hero-section .text h2 {
+      font-size: 30px;
+  }  
+}
+
+@media (max-width: 600px) {
+
+  .hero-section .socials {
+    display: block;
+  }
+
+  .hero-section .socials a {
+    color: var(--text-color);
+    margin: 0 10px;
+    transition: .1s;
+  }
+
+  .hero-section .socials a:hover {
+      color: var(--hover-color);
+  }
+
+  .hero-section .socials a span {
+      margin-left: 4px;
+  }
+
+  .hero-section .socials a:last-child {
+      color: var(--background-color);
+      background-color: var(--text-color);
+      padding: 5px 15px;
+      border-radius: 5px;
+  }
+
+  .hero-section .socials a:last-child:hover {
+      background-color: var(--hover-color);
+  }
+
+  /* .hero-section {
+    padding: 0 20px;
+  } */
+  .hero-section .socials a {
+      font-size: 27px;
+      margin: 0 17px;
+  }
+  .hero-section .socials a span {
+      display: none;
+  }
+  .hero-section .socials a:last-child {
+      color: var(--text-color);
+      background-color: transparent;
+      padding: 0px;
+  }
+  .hero-section .socials a:last-child:hover {
+      background-color: transparent;
+      color: var(--hover-color);
+  }
+
+}
+
+@media (max-width: 1150px) {
+
+  .hero-section .text h2 {
+      font-size: 30px;
+  }
+}
+
+/* RESIZING SECTION 3: SKILLS */
+@media (max-width: 374px) {
+  
+
+.skills-section .skill-sets .skill img {
+    width: 25px;
+    height: 25px;
+}
+
+.skills-section .skill-sets .skill span {
+    font-size: 13px;
+}
+}
+/* RESIZING SECTION 4: PROJECTS */
+@media (max-width: 1390px) {
+  .project-section .horizontal-scroll {
+    justify-content: flex-start; /* Align content to the left */
+    scroll-snap-type: x mandatory; /* Optional: Makes scrolling smoother */
+  }
+}
+
+/* RESIZING SECTION 5: CONTACT*/
+
+/* RESIZING SECTION 6: FOOTER */
+
+/* RESIZING SECTION: CONTACT-MODEL CONTENTS */
+@media (max-width: 1150px) {
+  .modal-content form button {
+    width: 50%;
+  }
+}
+
+@media (max-width: 880px) {
+  .modal-content form button {
+    width: 100%;
+  }
+}

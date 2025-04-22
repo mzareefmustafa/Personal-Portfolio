@@ -27,6 +27,11 @@ Access the site [here](https://mzareefmustafa.com)
 personal-portfolio/
   └── .vscode/
       ├── settings.json
+  └── docs/
+      ├── assets/
+      ├── index.html
+      ├── script.js
+      └── style.css
   └── server/
       ├── static/
       │   ├── assets/
