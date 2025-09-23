@@ -187,7 +187,7 @@ nav .dropdown-menu button {
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: 0 50px;
+    padding: 0 30px;
     padding-top: 60px;
     padding-bottom: 60px;
     max-width: 1640px; /* Prevent expanding beyond 1440px (or your chosen limit) */
